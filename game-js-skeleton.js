@@ -1,5 +1,23 @@
+/*
+ *   The JS file manipulates HTML objects and is capable of making webpages interact with users.
+ *
+ *      JS has two different kinds of comments - multiline and single-line. This is a multiline comment.
+ */
+
+// This is a single-line comment.
+
+/* We want to make sure our code runs after everything has loaded,
+*         so we wrap our code in a function that will be called when the
+*                 window loads using the following syntax:
+*
+*    window.onload = function() {our code goes here};
+*/
+
 window.onload = function() {
-	// SETUP
+     /*
+      *                 ======== SETUP ========
+      *                Preliminary set-up section.
+      */
 
 	// grab canvas
 	// TODO: FILL IN CODE FOR GRABBING CANVAS
@@ -7,27 +25,32 @@ window.onload = function() {
 	canvas.height= 400;
 	var ctx = canvas.getContext("2d");
 
-	// bg image
+    // image sources:
+    // background - http://www.classyartwork.com/images/landscapes/pond_illustration_l3.jpg
+    // crosshair - http://4vector.com/i/free-vector-crosshairs-clip-art_105823_Crosshairs_clip_art_hight.png
+    // duck - http://www.clker.com/cliparts/e/a/4/b/13419561141016031803Shaking%20Duck.svg.hi.png
+
+	// create background image.
 	var bgReady = false;
 	var bgImage = new Image();
 	bgImage.onload = function () {
 		bgReady = true;
 	};
-	bgImage.src = "http://www.classyartwork.com/images/landscapes/pond_illustration_l3.jpg";
+    bgImage.src = "images/background.jpg";
 
-	// player image
+	// Create crosshair image.
 	var playerReady = false;
 	var playerImage = new Image();
 	// TODO: FILL IN PLAYER IMAGE ONLOAD FUNCTION
-    playerImage.src = "http://4vector.com/i/free-vector-crosshairs-clip-art_105823_Crosshairs_clip_art_hight.png";
+    playerImage.src = "images/crosshair.png";
 
-	// duck image
-	var duckReady = false;
-	var duckImage = new Image();
-	// TODO: FILL IN DUCK IMAGE ONLOAD FUNCTION
-    duckImage.src = "http://www.clker.com/cliparts/e/a/4/b/13419561141016031803Shaking%20Duck.svg.hi.png";
+   /*
+    *
+    *           ======== OBJECTS ========
+    *  We store game state (ie. position) here in various objects.
+    *
+    */
 
-	// OBJECTS
     /* TODO:
      * Create a player object (i.e. var player) with
      * attributes: score = 0, x = 0, y = 0
@@ -38,7 +61,11 @@ window.onload = function() {
 		y: Math.floor(Math.random()*(canvas.height-30))
 	};
 
-	// FUNCTIONS
+	/*
+     *  ======== FUNCTIONS ========
+     *  Define helper functions here.
+     *
+     */
 
 	var render = function () {
         /* TODO:
@@ -68,7 +95,10 @@ window.onload = function() {
 		ctx.fillText("Score: " + player.score, 32, 32);
 	}
 
-	// EVENT LISTENERS
+    /*
+     *  ======== EVENT LISTENERS ========
+     *    Bind listeners to events here.
+     */
 
 	canvas.addEventListener("mousemove", function(e) {
 		if (e.x < (canvas.width + 25) && e.x > 0) {
@@ -92,11 +122,14 @@ window.onload = function() {
 		}
 	}, false);
 
-	// MAIN
+    /*
+     *   ======== MAIN ========
+     * This is the main function of the game.
+     */
 
 	var main = function () {
 		render();
 	}
 
-	setInterval(main, 1);
+	//setInterval(main, 1);
 }
