@@ -66,7 +66,7 @@ window.onload = function() {
 
 	// EVENT LISTENERS
 
-	document.addEventListener("mousemove", function(e) {
+	canvas.addEventListener("mousemove", function(e) {
 		if (e.x < (canvas.width + 25) && e.x > 0) {
 			player.x = e.x - 25;
 		}
@@ -75,7 +75,7 @@ window.onload = function() {
 		}
 	}, false);
 
-	document.addEventListener("click", function(e) {
+	canvas.addEventListener("click", function(e) {
 		if (e.x > (duck.x) && e.x < (duck.x + 60) &&
 			e.y > (duck.y) && e.y < (duck.y + 60)) {
 			// HIT!
