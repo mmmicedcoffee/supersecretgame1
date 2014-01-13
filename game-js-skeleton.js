@@ -72,10 +72,14 @@ window.onload = function() {
 
 	canvas.addEventListener("mousemove", function(e) {
 		if (e.x < (canvas.width + 25) && e.x > 0) {
-			player.x = e.x - 25;
+			//TODO: uncomment the following line when you
+            // have created your player object
+            //player.x = e.x - 25;
 		}
 		if (e.y < (canvas.height + 25) && e.y > 0) {
-			player.y = e.y - 25;
+			//TODO: uncomment the following line when you
+            //have created your player object
+            //player.y = e.y - 25;
 		}
 	}, false);
 
